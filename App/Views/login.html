@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<div class="login_wrapper">
+
+    <!-- Modal Trigger -->
+    <a class="btn red darken-2 modal-trigger" href="#modal1">What I used</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>What I used to style the app</h4>
+            <p>I tried to make this app look nice using the following technologies:</p>
+            <ul>
+                <li>Twig for server-side templating</li>
+                <li>Responsive design, including media and feature queries</li>
+                <li>Materialize CSS framework to make the app look really nice (never worked with it before, so it was a chance to learn it hands-on)</li>
+                <li>Material icons</li>
+                <li>Fixed action button (FAB), to improve UI on mobile devices</li>
+                <li>Materialize's 'toasts' instead of dull static messages for users</li>
+                <li>Cute login form with an awesome on and off button for long-term auth</li>
+                <li>SASS (with sourcemaps) for quicker styling</li>
+                <li>Gulp task runner to collect, concat and minify js and css</li>
+            </ul>
+            <p>The app works fine in modern browsers (even in IE11) and in major mobile browsers.</p>
+        </div>
+    </div>
+
+
+    <div class="login_box">
+        <h5 class="login_header"> {{APP_NAME}}</h5>
+        <div class="login_header">{{PLEASE_LOG_IN}}</div>
+        <p class="dev-message">E.g. login is root1 and password is 123456</p>
+        <form class="login_form" action="" method="post">
+            <input name="username" placeholder="{{UI_TXT_USERNAME_PLACEHOLDER}}">
+            <input type="password" name="password" placeholder="{{UI_TXT_PASSWORD_PLACEHOLDER}}">
+            <div class="rememberMe">
+                <div class="switch">
+                    <label for="remember_me">{{UI_TXT_REMEMBER_ME}}</label>
+                    <label>
+                        {{UI_TXT_OFF}}
+                        <input type="checkbox" name="remember_me" id="remember_me">
+                        <span class="lever"></span>
+                        {{UI_TXT_ON}}
+                    </label>
+                </div>
+
+
+            </div>
+
+            <button name="loginCredentialsSubmitted" value="Log _in" class="btn" id="submitFileUrlForDownload">{{UI_TXT_LOG_IN_BTN}}</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

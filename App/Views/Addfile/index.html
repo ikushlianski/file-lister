@@ -1,0 +1,27 @@
+
+
+<div class="row">
+    <div class="col s12">
+        <div class="section file-upload-section">
+            <div class="section__title">{{UI_TXT_UPLOAD_SECTION_TITLE}}</div>
+            <div class="file-upload-wrapper">
+                <form class="file-upload-form" enctype="multipart/form-data" method="post" name="fileinfo">
+                    <!--<input type="file" class="" name="file" id="file-upload-field">-->
+                    <!--<input type="submit" name="fileSubmitted" value="Upload file to your folder" disabled>-->
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name="file" id="file-upload-field">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                    <button type="submit" name="fileSubmitted" value="Upload file to your folder" class="btn" id="submitFileUrlForUpload" disabled><i class="material-icons right">file_upload</i>{{UI_TXT_UPLOAD_BTN}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

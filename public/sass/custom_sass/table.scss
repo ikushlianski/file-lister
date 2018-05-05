@@ -1,0 +1,55 @@
+.filesAvailable {
+  margin-bottom: 1em;
+  @media (max-width: 500px) {
+    font-size: 0.85em;
+  }
+  & button.red, button {
+    @media (max-width: 500px) {
+      font-size: 0.85em;
+      padding: 0.1em;
+      background-color: transparent!important;
+    }
+    & > .material-icons {
+      @media (max-width: 500px) {
+        color: black;
+      }
+    }
+  }
+}
+
+
+.sortable {
+  cursor: pointer;
+  &:before {
+    color: grey;
+    font-family: 'Material Icons';
+    // content: "\E164";
+    content: "=";
+    font-size: 0.9em;
+    margin-right: 0.5em;
+  }
+}
+
+
+.sorted {
+  &-asc:before {
+    font-family: 'Material Icons';
+    // content: "\E313";
+    content: "A-Z";
+    font-size: 0.8em;
+    margin-right: 0.5em;
+  }
+  &-desc:before {
+    font-family: 'Material Icons';
+    // content: "\E316";
+    content: "Z-A";
+    font-size: 0.8em;
+    margin-right: 0.5em;
+  }
+}
+
+.sortable:before.sorted {
+  &-asc, &-desc {
+      display: none;
+  }
+}

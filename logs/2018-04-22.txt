@@ -1,0 +1,4 @@
+[22-Apr-2018 11:47:22 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask07\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask07\Core\Router.php' on line 158

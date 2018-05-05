@@ -1,0 +1,63 @@
+@import "custom-colors";
+
+.code404 {
+  text-align: center;
+  font-size: 5em;
+  color: whitesmoke;
+}
+
+.dev-message {
+  color: #2c596d;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.error-page-link {
+  text-align: center;
+}
+
+.messageError {
+  padding: 0.5em;
+  background-color: $message_error_bg;
+  color: whitesmoke;
+  margin: 1em auto 0em;
+  width: 75%;
+}
+
+.messageArea {
+  padding: 0.5em 0;
+  text-align: center;
+  font-size: 0.9em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.messageSuccess {
+  padding: 0.5em;
+  background-color: rgba(139, 195, 74, 0.5);
+  color: #49984c;
+  margin: 0 auto;
+  width: 75%;
+  .files-list & {
+    margin: 1em auto;
+  }
+}
+
+.messageError404, .messageError500 {
+  background-color: transparent;
+  color: whitesmoke;
+  text-align: center;
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 5%;
+  left:5%;
+  & > .toast {
+    word-break: normal;
+    @media (max-width: 360px) {
+      width: 260px;
+    }
+  }
+}

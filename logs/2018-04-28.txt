@@ -1,0 +1,28 @@
+[28-Apr-2018 11:12:25 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask08\Core\Router.php' on line 158
+[28-Apr-2018 12:32:41 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask08\Core\Router.php' on line 158
+[28-Apr-2018 12:33:12 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask08\Core\Router.php' on line 158
+[28-Apr-2018 14:33:49 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask08\Core\Router.php' on line 158
+[28-Apr-2018 14:33:49 Europe/Minsk] Uncaught exception: 'Exception' with message 'No route matched'
+Stack trace: #0 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('favicon.ico')
+#1 {main}
+Thrown in 'D:\WebData\epamtask08\Core\Router.php' on line 158
+[28-Apr-2018 17:31:36 Europe/Minsk] Uncaught exception: 'Exception' with message 'Not found'
+Stack trace: #0 D:\WebData\epamtask08\App\Controllers\Home.php(31): App\Models\Downloadfiles->handle_downloaded_file()
+#1 [internal function]: App\Controllers\Home->indexAction()
+#2 D:\WebData\epamtask08\Core\Controller.php(29): call_user_func_array(Array, Array)
+#3 D:\WebData\epamtask08\Core\Router.php(145): Core\Controller->__call('index', Array)
+#4 D:\WebData\epamtask08\public\index.php(42): Core\Router->dispatch('')
+#5 {main}
+Thrown in 'D:\WebData\epamtask08\App\Models\Downloadfiles.php' on line 36

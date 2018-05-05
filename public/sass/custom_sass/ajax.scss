@@ -1,0 +1,95 @@
+@import "custom-colors";
+
+/**
+* AJAX animations
+*/
+
+.imagePreview {
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  width: 200px;
+  height: auto;
+  z-index: 2;
+}
+
+.newlyInserted {
+  animation-name: addFadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@keyframes addFadeIn {
+  0% {
+    background-color: teal;
+    opacity: 0;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 1;
+  }
+}
+
+.progressBarWrapper {
+  width: 50%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 2;
+  background-color: whitesmoke;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+  & > .progressBar {
+    margin: auto;
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  & > .uploadingMessage {
+    text-align: center;
+  }
+}
+
+
+.toBeRemoved {
+  animation-name: removeFadeOut;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@keyframes removeFadeOut {
+  0% {
+    background-color: #ef5350;
+    opacity: 1;
+  }
+  100% {
+    background-color: transparent;
+    opacity: 0;
+    display: none;
+  }
+}
+
+// style buttons for :after "waiting" icon
+#submitFileUrlForDownload, #submitFileUrlForUpload {
+  position: relative;
+}
+
+.waiting:after {
+  content: '\E5D5';
+  font-family: 'Material Icons';
+  animation: rotation 0.5s infinite linear;
+  float: right;
+  position: absolute;
+  right: -1.5em;
+  font-size: 1.5em;
+  color: $gradient_color_dark2;
+}
+
+@keyframes rotation {
+  from {transform: rotate(0deg);}
+  to   {transform: rotate(359deg);}
+}

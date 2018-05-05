@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Files list{% endblock %}
+
+{% block body %}
+
+<div class="sections-wrapper">
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="section stats z-depth-1">
+                <div class="section__title"><i class="material-icons">info</i> {{UI_TXT_USER_INFO}}</div>
+                <div class="section__body">
+                    <div><b>{{UI_TXT_CUR_USER}}</b> {{currentUser}}</div>
+                    <div>
+                        <b>{{UI_TXT_SPACE_AVAILABLE}}</b>
+                        <span class="freeSpaceMB">{{userFreeSpaceInMB}}</span>{{UI_TXT_MB}}
+                        {{ UI_TXT_OUT_OF }} {{userSpaceLimitInMB}}{{UI_TXT_MB}} </div>
+                    <div><b>{{UI_TXT_CUR_USER_FOLDER}}</b> {{userFolder}}</div>
+                    <div><b>{{UI_TXT_ACCEPTED_FORMATS}}</b> {{acceptedFileFormats}}</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col s12 m6">
+            <div class="section stats z-depth-1">
+                <div class="section__title"><i class="material-icons">insert_chart</i> {{UI_TXT_APP_STATS}}</div>
+                <div class="section__body">
+                    <div><b>{{UI_TXT_USER_COUNT}}</b>: {{userCount}}</div>
+                    <div>
+                        <b>{{UI_TXT_FILES_TOTAL_SPACE}}</b>
+                        <span class="filesTotalSpaceKB">{{filesTotalSpace}}</span>{{UI_TXT_KB}}
+                    </div>
+                    <div>
+                        <b>{{UI_TXT_FILES_TOTAL_COUNT}}</b>
+                        <span class="fileCount">{{filesTotalCount}}</span>
+                    </div>
+                    <div><b>{{UI_TXT_AVG_SPACE_TAKEN_BY_USER}}</b>
+                        <span class="avgFileSpacePerUser">{{avgFileSpacePerUser}}</span>{{UI_TXT_KB}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="section files-list z-depth-1">
+                <div class="section__title"><i class="material-icons">insert_drive_file</i> {{ UI_TXT_FILES_IN_FOLDER }}</div>
+                <div class="section__body">
+                    <table class="filesAvailable">
+                        <thead>
+                            <tr>
+                                <th class="sortable sort_filename col_filename">{{ UI_TXT_FILE_NAME }}</th>
+                                <th class="sortable sort_uploaddate col_filedate">{{ UI_TXT_UPLOAD_DATE }}</th>
+                                <th class="sortable sort_filesize col_filesize">{{ UI_TXT_FILE_SIZE }} ({{ UI_TXT_KB }})</th>
+                                <th class="col_filedownload"></th>
+                                <th class="col_filedelete"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!--Reference TR node to clone after successful AJAX requests-->
+                            <tr class="referenceNode hidden">
+                                <td class="sort_filename"></td>
+                                <td class="sort_uploaddate"></td>
+                                <td class="sort_filesize"></td>
+                                <td><button class="fileDownloadButton btn" data-fhash="" value=""><i class="material-icons">file_download</i></button></td>
+                                <td><button class="fileDeleteButton btn-flat red lighten-1" data-fhash="" value=""><i class="material-icons">delete_sweep</i></button></td>
+                            </tr>
+
+                            <!--Real files from DB are listed here-->
+                            {% if userFiles is defined and userFiles is not empty %}
+                            {% for file in userFiles %}
+                            <tr>
+                                <td class="sort_filename">{{ file.f_name }}</td>
+                                <td class="sort_uploaddate" data-unix_upload="{{file.f_date}}">{{ file.f_date|date("Y/m/d H:i:s") }}</td>
+                                <td class="sort_filesize">{{ (file.f_size/1024)|round(2, 'floor') }}</td>
+                                <td><button class="fileDownloadButton btn" data-fhash="{{ file.f_hash }}" value=""><i class="material-icons">file_download</i></button></td>
+                                <td><button class="fileDeleteButton btn-flat red lighten-1" data-fhash="{{ file.f_hash }}" value=""><i class="material-icons">delete_sweep</i></button></td>
+                            </tr>
+                            {% endfor %}
+
+                            {% endif %}
+                        </tbody>
+                    </table>
+
+                    <!--Hidden forms to handle deletes and downloads via POST-->
+                    <form method="post" action="" id="fileDeletionForm" class="filesAvailable hidden">
+                                <input id="filetodelete" type="submit" name="filetodelete" value="" />
+                    </form>
+
+                    <form method="post" action="" id="fileDownloadForm" class="filesAvailable hidden">
+                        <input id="singlefiletodownload" type="submit" name="singlefiletodownload" value="" />
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% embed "Addfile/index.html" %}{% endembed %}
+
+{% embed "Downloadfile/index.html" %}{% endembed %}
+
+{% endblock %}

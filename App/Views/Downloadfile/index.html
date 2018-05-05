@@ -1,0 +1,27 @@
+
+<div class="row">
+    <div class="col s12">
+        <div class="section file-download-section">
+            <div class="section__title">{{UI_TXT_DOWNLOAD_SECTION_TITLE}}</div>
+            <div class="section__body">
+                <div class="dev-message">Progress bar with CURL. <br>Sample archive to download: http://enctvtest.ilya.online/modules.zip (2.5MB)</div>
+                <form action="" method="post" id="curlDownloadForm" enctype="multipart/form-data">
+                    <input type="url" placeholder="{{UI_TXT_URL_PLACEHOLDER}}" name="downloadUrl">
+                    <p>
+                        <label>
+                            <input class="with-gap" name="downloadoption" type="radio" value="to-folder" checked />
+                            <span>{{UI_TXT_SAVE_TO_FOLDER}}</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="downloadoption" type="radio" value="directly" />
+                            <span>{{UI_TXT_DOWNLOAD_DIRECTLY}}</span>
+                        </label>
+                    </p>
+                        <button type="submit" name="fileurlsubmitted" value="submit_url" class="btn" id="submitFileUrlForDownload" disabled>{{UI_TXT_DOWNLOAD_BTN}}<i class="material-icons right">file_download</i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

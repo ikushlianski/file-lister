@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/materialize.css" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+
+<!--Preloader-->
+<div class="preloader-back">
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+</div>
+
+<!--Progress bar-->
+<div class="progressBarWrapper hidden">
+    <progress class="progressBar" max="1" value=""></progress>
+</div>
+
+    <div class="page_wrapper">
+
+        <!--Main menu desktop-->
+        {% if not loggedout %}
+        <nav id="navigation">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">{{APP_NAME}}</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/index">{{HOME}}</a></li>
+                    <li><a href="/?logout=yes">{{LOG_OUT}}</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Fixed action buttons for faster browsing-->
+        <div class="fixed-action-btn hide-on-large-only">
+            <a class="btn-floating btn-large cyan darken-3">
+                <i class="large material-icons">more_horiz</i>
+            </a>
+            <ul>
+                <li>
+                    <a href="/index" class="btn-floating teal lighten-1">
+                        <i class="material-icons">view_list</i>
+                    </a>
+                </li>
+                <li>
+                    <a href="/?logout=yes" class="btn-floating teal lighten-1">
+                        <i class="material-icons">exit_to_app</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!--Main menu desktop-->
+        <ul class="sidenav" id="mobile-demo">
+            <a href="/" class="brand-logo"><h3>{{APP_NAME}}</h3></a>
+            <li><a href="/index">{{HOME}}</a></li>
+            <li><a href="/?logout=yes">{{LOG_OUT}}</a></li>
+        </ul>
+        {% endif %}
+
+        <!--Main container of the app-->
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+        </div>
+
+    </div>
+    <footer>{{UI_TXT_FOOTER_COPYRIGHT}}</footer>
+
+    <!--Html 5.2 now allows us to place link tags in body. Stylesheet is a "body-ok" keyword -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script defer
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <script defer type="text/javascript" src="/js/materialize.min.js"></script>
+    <script defer src="/js/scripts.js"></script>
+    <script defer src="/js/jquery.color.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+
+</body>
+</html>

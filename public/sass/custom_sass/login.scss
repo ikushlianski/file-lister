@@ -1,0 +1,73 @@
+@import "custom-colors";
+
+.login_box {
+  background: linear-gradient(to top left, $gradient_color_dark1, $gradient_color_dark2);
+  border-radius: 5px;
+  @media (max-width: 400px) {
+    padding: 1em;
+  }
+  @media (min-width: 400px) {
+    padding: 3em;
+  }
+  & .dev-message {
+    color: $text_on_dark_bg;
+  }
+}
+
+.login_header {
+  color: whitesmoke;
+  text-align: center;
+  // font-size: 2em;
+  margin-bottom: 2em;
+}
+
+.login_form {
+  & input {
+    display: block;
+    margin: 0.5em auto;
+    color: $text_on_dark_bg;
+  }
+  & input[type="submit"] {
+    color: whitesmoke;
+    line-height: normal;
+    //margin: -1em -1.2em;
+    //padding: 1.7em 2em;
+    //visibility: hidden;
+  }
+  & .btn {
+    margin: 1em auto 0;
+    display: table;
+  }
+}
+
+
+.login_wrapper {
+  @media (max-width: 400px) {
+    width: 280px;
+    padding: 3em 0.5em;
+  }
+  @media (min-width: 400px) {
+    width: 360px;
+    padding: 4em 2em;
+  }
+  margin: 0 auto;
+  & .modal-trigger {
+    margin: 0em auto 2em;
+    display: table;
+  }
+}
+
+.rememberMe {
+  text-align: center;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch {
+  & > label {
+    display: block;
+    margin: 1em auto;
+  }
+}
